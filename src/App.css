@@ -1,0 +1,272 @@
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main header styles removed as it's now part of the grid */
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 200px);
+  }
+
+  .card-about {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .card-portfolio {
+    grid-row: span 2;
+  }
+
+  .card-visitor {
+    grid-column: span 2;
+  }
+
+  .card-header {
+    grid-column: span 2;
+  }
+
+  .header-content h1 {
+    font-size: 2rem;
+    /* Reduced for tablet */
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 250px);
+  }
+
+  .card-about {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .card-portfolio {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  .card-tech {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .card-social {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .card-contact {
+    grid-column: span 2;
+    /* Full width bottom or adjust as needed */
+    grid-row: span 1;
+  }
+
+  /* Adjusting for a nice bento layout */
+  /* 
+    [ About (2x2) ] [ Portfolio (1x2) ] [ Tech (1x1) ]
+                                        [ Social (1x1) ]
+    [ Contact (4x1) ] - optional, or rearrange
+  */
+
+  /* Let's try a specific layout:
+     Row 1: About (2 cols), Portfolio (1 col), Tech (1 col)
+     Row 2: About (cont), Portfolio (cont), Social (1 col), Contact (1 col)
+     
+     Actually, let's do:
+     [ About (2x2) ] [ Portfolio (1x2) ] [ Tech (1x1) ]
+                                         [ Social (1x1) ]
+     [ Contact (4x1) ]
+  */
+
+  .bento-grid {
+    grid-template-rows: 150px 250px 250px 200px;
+    /* Added row for header */
+  }
+
+  .card-header {
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+  }
+
+  .card-header:hover {
+    /* Restoring default hover scale */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* Optional: keep shadow or remove */
+    z-index: 1;
+    /* Don't pop out as much */
+  }
+
+  .card-about {
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+  }
+
+  .card-portfolio {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    /* Reduced to 1 row */
+  }
+
+  .card-clock {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+  }
+
+  .card-tech {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+  }
+
+  .card-social {
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+  }
+
+  .card-contact {
+    grid-column: 1 / 3;
+    /* Reduced from 1 / 5 */
+    grid-row: 4 / 5;
+  }
+
+  .card-visitor {
+    grid-column: 3 / 5;
+    grid-row: 4 / 5;
+  }
+
+  .header-content h1 {
+    font-size: 2.5rem;
+    /* Match other cards */
+  }
+}
+
+/* Header Content Styling within Card */
+.header-content {
+  text-align: center;
+  animation: fadeInDown 0.8s ease;
+}
+
+.header-content h1 {
+  font-size: 2rem;
+  /* Mobile base size */
+  color: var(--color-2);
+  margin-bottom: 0.5rem;
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.header-content p {
+  font-size: 1.2rem;
+  color: #e07a5f;
+}
+
+/* Modal Content Styling */
+.profile-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: var(--color-3);
+  margin: 0 auto 1rem;
+  border: 4px solid var(--color-5);
+  background-image: var(--bg-default);
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.3s ease-in-out;
+  /* Note: background-image transition support varies, but works in modern browsers or snaps */
+  cursor: pointer;
+}
+
+.profile-pic:hover {
+  background-image: var(--bg-hover);
+}
+
+.profile-details {
+  line-height: 1.6;
+}
+
+.portfolio-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.portfolio-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.tech-list {
+  list-style-position: inside;
+  line-height: 2;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.social-link {
+  color: var(--color-2);
+  text-decoration: none;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  transition: background 0.3s;
+  text-align: center;
+}
+
+.social-link:hover {
+  background: var(--color-3);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
