@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import API_URL from '../config';
 
 const VisitorCounter = () => {
     const [visits, setVisits] = useState(1024);
 
     useEffect(() => {
-        fetch('/api/visitors/count')
+        fetch(`${API_URL}/api/visitors/count`)
             .then(res => res.json())
             .then(data => setVisits(data.count))
             .catch(err => console.error('Error fetching visitor count:', err));

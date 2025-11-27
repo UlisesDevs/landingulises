@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import './ContactForm.css';
+import API_URL from '../config';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -22,7 +21,7 @@ const ContactForm = () => {
         setStatus('sending');
 
         try {
-            const response = await fetch('/api/contact', {
+            const response = await fetch(`${API_URL}/api/contact`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
