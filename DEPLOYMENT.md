@@ -51,5 +51,16 @@ This guide explains how to deploy your full-stack portfolio for free using the "
 3.  Edit `cors.allowed-origins` and change `*` to your Vercel URL.
 4.  Save changes. Render will redeploy automatically.
 
+## Part 4: Adding a Custom Domain (Optional)
+
+1.  **Buy a Domain:** Purchase your desired domain (e.g., `ulisesdevs.com`) from a registrar like **Namecheap**, **GoDaddy**, or **Porkbun**.
+2.  **Configure in Vercel:**
+    *   Go to your Project in Vercel -> **Settings** -> **Domains**.
+    *   Enter your domain name and click **Add**.
+3.  **Configure DNS (at your Registrar):**
+    *   Vercel will show you the required DNS records (usually an **A Record** pointing to `76.76.21.21` or a **CNAME** to `cname.vercel-dns.com`).
+    *   Log in to where you bought your domain, find the **DNS Settings**, and add these records.
+4.  **Wait:** DNS propagation can take from minutes to 48 hours. Once active, Vercel will automatically generate an SSL certificate (HTTPS) for you.
+
 ## Done! 🚀
 Your full-stack portfolio is now live!
