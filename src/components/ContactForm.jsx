@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+import './ContactForm.css';
 import API_URL from '../config';
 
 const ContactForm = () => {

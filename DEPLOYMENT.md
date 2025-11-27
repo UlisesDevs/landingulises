@@ -18,6 +18,8 @@ This guide explains how to deploy your full-stack portfolio for free using the "
     *   Connect your GitHub repository (`landingulises`).
     *   **Runtime:** Docker.
     *   **Region:** Same as your database.
+    *   **Branch:** main.
+    *   **Root Directory:** `backend` (IMPORTANT: This tells Render to build the Java app, not the frontend).
     *   **Plan:** Free.
     *   **Environment Variables:** Scroll down and add these keys/values using the info from your Database:
         *   `SPRING_DATASOURCE_USERNAME`: (Copy from DB details)
